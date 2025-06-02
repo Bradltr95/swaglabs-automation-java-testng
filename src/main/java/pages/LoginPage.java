@@ -2,11 +2,10 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import java.time.Duration;
 
 public class LoginPage {
-
-    private WebDriver driver;
+    private final WebDriver driver;
 
     // Page Locators
     private final By usernameInput = By.id("user-name");
@@ -17,6 +16,7 @@ public class LoginPage {
     // Page Actions
     public LoginPage(WebDriver driver) {
         this.driver = driver;
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
 
     public void enterUsername(String username) {
@@ -44,6 +44,6 @@ public class LoginPage {
     }
 
     public boolean isErrorDisplayed() {
-        return driver.findElements(errorMessage).size() > 0;
+        return !driver.findElements(errorMessage).isEmpty();
     }
 }
