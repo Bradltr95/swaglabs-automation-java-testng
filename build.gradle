@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.swaglabs'
+version = '1.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Selenium
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.20.0'
+
+    // TestNG
+    testImplementation 'org.testng:testng:7.10.1'
+
+    // WebDriverManager
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.8.0'
+
+    // Optional Logging
+    implementation 'org.apache.logging.log4j:log4j-core:2.22.1'
+    implementation 'org.apache.logging.log4j:log4j-api:2.22.1'
+
+    // Optional: ExtentReports
+    testImplementation 'com.aventstack:extentreports:5.1.1'
+}
+
+test {
+    useTestNG() {
+        suites 'testng.xml'
+    }
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
