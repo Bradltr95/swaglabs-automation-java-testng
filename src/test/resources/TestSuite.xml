@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SwagLabs Automation Suite">
+    <parameter name="user" value="standard_user"/>
+    <parameter name="pass" value="secret_sauce"/>
+    <test name="UI Tests">
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.InventoryTest"/>
+            <class name="tests.AddItemToCartTest"/>
+        </classes>
+    </test>
+</suite>

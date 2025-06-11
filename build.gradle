@@ -22,5 +22,9 @@ dependencies {
 
 
 test {
-    useTestNG()
+    if (project.hasProperty('suite')) {
+        useTestNG {
+            suites "src/test/resources/${project.suite}"
+        }
+    }
 }

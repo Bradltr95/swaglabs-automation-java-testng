@@ -1,14 +1,16 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
 public class LoginTest extends BaseTest {
     @Test
-    public void testSuccessfulLogin() {
+    @Parameters({"user", "pass"})
+    public void testSuccessfulLogin(String user, String pass) {
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.loginAs("standard_user", "secret_sauce");
+        loginPage.loginAs(user, pass);
 
         String currentUrl = driver.getCurrentUrl();
         Assert.assertTrue(currentUrl.contains("inventory"), "User should be redirected to inventory page");
