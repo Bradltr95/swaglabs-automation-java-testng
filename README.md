@@ -61,14 +61,11 @@ swaglabs-automation-java-testng/
    git clone https://github.com/yourusername/swaglabs-automation-java-testng.git
    cd swaglabs-automation-java-testng
    ```
-2. Run tests
 
+2. **Run a Specific Test Suite**
+Test Suites exist under the resources folder of src/test/java. See the gradle build file to see exactly how tests are being selected.
   ```bash
-  ./gradlew test
-  ```
-3. Run a Specific Test Suite
-  ```bash
-  ./gradlew test -DsuiteXmlFile=testng.xml
+  ./gradlew test -Psuite=TestSuite.xml
   ```
 ## Reporting
 TestNG generates basic HTML reports under build/reports/tests/test/
