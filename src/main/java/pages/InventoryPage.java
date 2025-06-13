@@ -14,6 +14,8 @@ public class InventoryPage {
     private final By backpackCartButton = By.id("add-to-cart-sauce-labs-backpack");
     private final By backpackDescription = By.cssSelector("[data-test='inventory-item-desc']");
     private final By backpackPrice = By.cssSelector("[data-test='inventory-item-price']");
+    private final By shoppingCartBadge =  By.id("add-to-cart-sauce-labs-backpack");
+    private final By productsHeader =  By.cssSelector("[data-test='title']");
 
     public InventoryPage(WebDriver driver) {
         this.driver = driver;
@@ -32,15 +34,18 @@ public class InventoryPage {
         return driver.findElement(backpackDescription).isDisplayed();
     }
 
-    public boolean isCartButtonDisplayed() {
-        return driver.findElement(backpackCartButton).isDisplayed();
-    }
+    public boolean isCartButtonDisplayed() { return driver.findElement(backpackCartButton).isDisplayed(); }
 
     public boolean isPriceDisplayed() {
         return driver.findElement(backpackPrice).isDisplayed();
     }
 
+    public boolean isShoppingCartBadgeDisplayed() { return driver.findElement(shoppingCartBadge).isDisplayed(); }
+
     public void addItemToCart(WebElement cartItem) {
         cartItem.click();
     }
+
+    public By getProductsHeader() { return productsHeader; }
+
 }
