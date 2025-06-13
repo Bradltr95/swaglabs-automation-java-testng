@@ -14,6 +14,7 @@ public class InventoryTest extends BaseTest {
         loginPage = new LoginPage(driver);
         loginPage.loginAs("standard_user", "secret_sauce");
     }
+
     @Test
     public void testLabsBackPageTitleExists() {
         InventoryPage inventoryPage = new InventoryPage(driver);
