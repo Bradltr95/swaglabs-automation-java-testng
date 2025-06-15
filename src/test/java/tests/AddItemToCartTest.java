@@ -2,7 +2,6 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -28,12 +27,12 @@ public class AddItemToCartTest extends BaseTest {
     public void loginAsUser(String user, String pass, String baseUrl) {
         loginPage = new LoginPage(driver);
         loginPage.loginAs(user, pass);
-        loginPage.isLoginSuccessful(baseUrl);
+        assert loginPage.isLoginSuccessful(baseUrl) : "Login was not successful";
     }
 
     @Test
     public void addItemToCart() {
-        inventoryPage = new InventoryPage(driver);
+        inventoryPage = new InventoryPage(driver, "/inventory.html");
         assert inventoryPage.isCartButtonDisplayed();
         WebElement item = driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
         inventoryPage.addItemToCart(item);

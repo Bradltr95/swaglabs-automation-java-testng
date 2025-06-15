@@ -17,7 +17,7 @@ public class InventoryTest extends BaseTest {
 
     @Test
     public void testLabsBackPageTitleExists() {
-        InventoryPage inventoryPage = new InventoryPage(driver);
+        InventoryPage inventoryPage = new InventoryPage(driver, "/inventory.html");
 
         // Verify we are on the inventory page
         String currentUrl = driver.getCurrentUrl();
