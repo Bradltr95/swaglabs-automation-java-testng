@@ -3,7 +3,7 @@
 <suite name="SwagLabs Automation Suite">
     <parameter name="user" value="standard_user"/>
     <parameter name="pass" value="secret_sauce"/>
-    <parameter name="baseUrl" value="https://www.saucedemo.com/"/>
+    <parameter name="baseUrl" value="https://www.saucedemo.com"/>
     <test name="UI Tests">
         <classes>
             <class name="tests.LoginTest"/>
