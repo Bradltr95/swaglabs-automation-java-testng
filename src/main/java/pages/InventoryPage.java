@@ -16,9 +16,11 @@ public class InventoryPage {
     private final By backpackPrice = By.cssSelector("[data-test='inventory-item-price']");
     private final By shoppingCartBadge =  By.id("add-to-cart-sauce-labs-backpack");
     private final By productsHeader =  By.cssSelector("[data-test='title']");
+    private String inventoryPath;
 
-    public InventoryPage(WebDriver driver) {
+    public InventoryPage(WebDriver driver, String inventoryPath) {
         this.driver = driver;
+        this.inventoryPath = inventoryPath;
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
 
@@ -40,12 +42,26 @@ public class InventoryPage {
         return driver.findElement(backpackPrice).isDisplayed();
     }
 
+    public boolean isProductsHeaderDisplayed() { return driver.findElement(productsHeader).isDisplayed(); }
+
     public boolean isShoppingCartBadgeDisplayed() { return driver.findElement(shoppingCartBadge).isDisplayed(); }
+
+    public boolean verifyProductsHeaderText() { return driver.findElement(productsHeader).getText().equals("Products"); }
+
+    public boolean isPageValid(String baseUrl) {
+        String expectedUrl = baseUrl + getPath();
+        String currentUrl = driver.getCurrentUrl();
+
+        boolean isDisplayed = isProductsHeaderDisplayed();
+        boolean hasExpectedText = verifyProductsHeaderText();
+        boolean titleMatches = currentUrl.equals(expectedUrl);
+
+        return isDisplayed && hasExpectedText && titleMatches;
+    }
 
     public void addItemToCart(WebElement cartItem) {
         cartItem.click();
     }
 
-    public By getProductsHeader() { return productsHeader; }
-
+    public String getPath() { return this.inventoryPath; }
 }

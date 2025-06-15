@@ -2,9 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.time.Duration;
 
 public class LoginPage {
@@ -53,20 +50,10 @@ public class LoginPage {
     /** @Todo: IMRPOVEMENTS
      * Error Handling: Wrap element interactions in a try-catch block to handle exceptions gracefully.
      * Externalize Text: Use a constants file or resource bundle for the "Products" text.
-     * Decouple Logic: Move the validation logic to the InventoryPage class to reduce coupling.
      * Explicit Waits: Use explicit waits for better control over element visibility.
      */
     public boolean isLoginSuccessful(String baseUrl) {
-        String expectedUrl = baseUrl + "/inventory.html";
-        String currentUrl = driver.getCurrentUrl();
-        InventoryPage inventoryPage = new InventoryPage(driver);
-
-        WebElement productsHeader = driver.findElement(inventoryPage.getProductsHeader());
-
-        boolean isDisplayed = productsHeader.isDisplayed();
-        boolean hasExpectedText = productsHeader.getText().equals("Products");
-        boolean titleMatches = currentUrl.equals(expectedUrl);
-
-        return isDisplayed && hasExpectedText && titleMatches;
+        InventoryPage inventoryPage = new InventoryPage(driver, "/inventory.html");
+        return inventoryPage.isPageValid(baseUrl);
     }
 }
