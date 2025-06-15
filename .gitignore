@@ -1,11 +1,15 @@
 # Gradle build files
 /build/
 /.gradle/
+.gradle/
+build/
 /out/
 
 # Gradle Wrapper files
 gradle-wrapper.jar
 gradle-wrapper.properties
+*.properties
+*.env
 
 # Gradle caches
 .gradle/
@@ -13,6 +17,7 @@ gradle-wrapper.properties
 # IDEA (IntelliJ) project files
 .idea/
 /*.iml
+*.iml
 *.iws
 
 # Eclipse project files
