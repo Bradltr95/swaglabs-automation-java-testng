@@ -8,9 +8,9 @@
     <parameter name="cartUrl" value="/cart.html"/>
     <test name="UI Tests">
         <classes>
-            <!--<class name="tests.LoginTest"/>
+            <class name="tests.LoginTest"/>
             <class name="tests.InventoryTest"/>
-            <class name="tests.AddItemToCartTest"/>-->
+            <class name="tests.AddItemToCartTest"/>
             <class name="tests.CartTest"/>
         </classes>
     </test>
