@@ -1,6 +1,8 @@
 package util;
 
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 
 import java.util.logging.Logger;
 
@@ -17,12 +19,11 @@ public class ElementChecker {
      * @param element the WebElement that is checked for isDisplayed().
      * @return Returns `true` if the item is displayed and returns `false` with an Exception logged otherwise.
      */
-    public boolean elementExists(WebElement element) {
+    public boolean elementExists(WebDriver driver, By element) {
         try{
-            return element.isDisplayed();
-        }catch(Exception e){
-            logger.info("Exception: " + e + "\nShopping cart is not displayed.");
-            System.out.println("Exception: " + e + "\nShopping cart is not displayed.");
+            return driver.findElement(element).isDisplayed();
+        }catch(NoSuchElementException e){
+            System.out.println("Exception: " + e.getMessage());
             return false;
         }
     }
