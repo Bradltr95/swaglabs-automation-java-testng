@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import util.ElementChecker;
 
 /*
 Cart Page Purpose:
@@ -17,7 +16,7 @@ Cart Page Purpose:
 // - Quantity, Remove Button, Price, Description, Page Header ("Your Cart")
 // Select cart items (This is a link in the cart item header that takes you to the item description
 public class CartPage extends BasePage {
-    private final By inventoryItemName = By.className("inventory_item_nameee");
+    private final By inventoryItemName = By.className("inventory_item_name");
     private final By inventoryItemDescription = By.className("inventory_item_description");
     private final By inventoryItemPrice = By.className("inventory_item_price");
     private final By removeSauceLabsBackpackButton = By.id("remove-sauce-labs-backpack");

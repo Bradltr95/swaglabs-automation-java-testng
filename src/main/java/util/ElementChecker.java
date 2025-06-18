@@ -4,25 +4,23 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * The purpose of the element checker class is to abstract the try()catch() block
- * from the POM's when checking if elements are displayed/exist. This reduces a ton of duplicate code.
- */
 public class ElementChecker {
     Logger logger = Logger.getLogger(getClass().getName());
 
     /**
-     * The purpose of this fucntion is to catch any exceptions when trying to find an element and log them to the Logger.
-     * It makes use of the WebElements isDisplayed() function to return a boolean if the item exists.
-     * @param element the WebElement that is checked for isDisplayed().
-     * @return Returns `true` if the item is displayed and returns `false` with an Exception logged otherwise.
+     * Try to see if the element is displayed. If it's not found, findElement will throw a NoSuchElementException.
+     * We are catching this and providing a message to the console.
+     * @param element The By object we will use to check if the elemnt is displayed.
+     * @return 'boolean:true' or 'boolean:false' if the element exists or not.
      */
     public boolean elementExists(WebDriver driver, By element) {
         try{
             return driver.findElement(element).isDisplayed();
         }catch(NoSuchElementException e){
+            logger.log(Level.INFO, "Element cannot be found: " + e.getMessage());
             System.out.println("Exception: " + e.getMessage());
             return false;
         }
