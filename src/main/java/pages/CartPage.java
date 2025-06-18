@@ -26,7 +26,7 @@ public class CartPage extends BasePage {
     }
 
     public boolean isItemNameDisplayed() {
-        return checkElement.elementExists(driver, inventoryItemName);
+        return checkElement.elementExists(inventoryItemName);
     }
     public boolean isItemDescriptionDisplayed() { return  driver.findElement(inventoryItemDescription).isDisplayed(); }
     public boolean isItemPriceDisplayed() { return  driver.findElement(inventoryItemPrice).isDisplayed(); }
