@@ -24,7 +24,7 @@ public class CartPage {
     private final By inventoryItemPrice = By.className("inventory_item_price");
     private final By removeSauceLabsBackpackButton = By.id("remove-sauce-labs-backpack");
 
-    CartPage(WebDriver driver, String cartPath) {
+    public CartPage(WebDriver driver, String cartPath) {
         this.driver = driver;
         this.cartPath = cartPath;
     }
