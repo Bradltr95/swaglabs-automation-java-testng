@@ -14,6 +14,7 @@ public class BasePage {
     private final String pathUrl;
     Logger logger = Logger.getLogger(getClass().getName());
 
+    // Set the driver, pathUrl and pass the driver to the elementChecker object.
     public BasePage(WebDriver driver, String pathUrl) {
         this.driver = driver;
         this.pathUrl = pathUrl;
