@@ -3,9 +3,6 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import java.util.logging.Logger;
-
-import java.time.Duration;
 
 public class InventoryPage extends BasePage {
     private final By backpackTitleLink = By.id("item_4_title_link");
@@ -19,29 +16,21 @@ public class InventoryPage extends BasePage {
         super(driver, inventoryPath);
     }
 
-    public boolean isTitleLinkDisplayed() {
-        return driver.findElement(backpackTitleLink).isDisplayed();
-    }
+    public boolean isTitleLinkDisplayed() { return checkElement.elementExists(backpackTitleLink); }
 
-    public boolean isTitleTextDisplayed() {
-        return driver.findElement(backpackTitleText).isDisplayed();
-    }
+    public boolean isTitleTextDisplayed() { return checkElement.elementExists(backpackTitleText); }
 
-    public boolean isDescriptionDisplayed() {
-        return driver.findElement(backpackDescription).isDisplayed();
-    }
+    public boolean isDescriptionDisplayed() { return checkElement.elementExists(backpackDescription); }
 
-    public boolean isCartButtonDisplayed() { return driver.findElement(backpackCartButton).isDisplayed(); }
+    public boolean isCartButtonDisplayed() { return checkElement.elementExists(backpackCartButton); }
 
-    public boolean isPriceDisplayed() {
-        return driver.findElement(backpackPrice).isDisplayed();
-    }
+    public boolean isPriceDisplayed() { return checkElement.elementExists(backpackPrice); }
 
-    public boolean isProductsHeaderDisplayed() { return driver.findElement(pageHeader).isDisplayed(); }
+    public boolean isProductsHeaderDisplayed() { return checkElement.elementExists(pageHeader); }
 
-    public boolean isShoppingCartBadgeDisplayed() { return driver.findElement(shoppingCartBadge).isDisplayed(); }
+    public boolean isShoppingCartBadgeDisplayed() { return checkElement.elementExists(shoppingCartBadge); }
 
-    public boolean verifyProductsHeaderText() { return driver.findElement(pageHeader).getText().equals("Products"); }
+    public boolean verifyProductsHeaderText() { return checkElement.elementExists(pageHeader); }
 
     public void addItemToCart(WebElement cartItem) {
         cartItem.click();
