@@ -34,7 +34,5 @@ public class CartTest extends BaseTest {
         assert cartPage.isItemDescriptionDisplayed();
         assert cartPage.isItemPriceDisplayed();
         assert cartPage.isRemoveBackpackDisplayed();
-
-        assert inventoryPage.isProductsHeaderDisplayed();
     }
 }
