@@ -4,11 +4,14 @@
     <parameter name="user" value="standard_user"/>
     <parameter name="pass" value="secret_sauce"/>
     <parameter name="baseUrl" value="https://www.saucedemo.com"/>
+    <parameter name="inventoryUrl" value="/inventory.html"/>
+    <parameter name="cartUrl" value="/cart.html"/>
     <test name="UI Tests">
         <classes>
-            <class name="tests.LoginTest"/>
+            <!--<class name="tests.LoginTest"/>
             <class name="tests.InventoryTest"/>
-            <class name="tests.AddItemToCartTest"/>
+            <class name="tests.AddItemToCartTest"/>-->
+            <class name="tests.CartTest"/>
         </classes>
     </test>
 </suite>

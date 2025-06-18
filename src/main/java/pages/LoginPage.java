@@ -4,9 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import java.time.Duration;
 
-public class LoginPage {
-    private final WebDriver driver;
-
+public class LoginPage extends BasePage {
     // Page Locators
     private final By usernameInput = By.id("user-name");
     private final By passwordInput = By.id("password");
@@ -15,8 +13,7 @@ public class LoginPage {
 
     // Page Actions
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        super(driver, "");
     }
 
     public void enterUsername(String username) {
@@ -47,11 +44,6 @@ public class LoginPage {
         return !driver.findElements(errorMessage).isEmpty();
     }
 
-    /** @Todo: IMRPOVEMENTS
-     * Error Handling: Wrap element interactions in a try-catch block to handle exceptions gracefully.
-     * Externalize Text: Use a constants file or resource bundle for the "Products" text.
-     * Explicit Waits: Use explicit waits for better control over element visibility.
-     */
     public boolean isLoginSuccessful(String baseUrl) {
         InventoryPage inventoryPage = new InventoryPage(driver, "/inventory.html");
         return inventoryPage.isPageValid(baseUrl);
