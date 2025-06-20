@@ -30,30 +30,7 @@ public class InventoryPage extends BasePage {
 
     public boolean isShoppingCartBadgeDisplayed() { return checkElement.elementExists(shoppingCartBadge); }
 
-    public boolean verifyProductsHeaderText() { return checkElement.elementExists(pageHeader); }
-
     public void addItemToCart(WebElement cartItem) {
         cartItem.click();
-    }
-
-    public boolean isPageValid(String baseUrl) {
-        String expectedUrl = baseUrl + getPath();
-        String currentUrl = driver.getCurrentUrl();
-
-        boolean isDisplayed = isProductsHeaderDisplayed();
-        boolean hasExpectedText = verifyProductsHeaderText();
-        boolean titleMatches = currentUrl.equals(expectedUrl);
-
-        if (!isDisplayed) {
-            logger.info("Debug: Products header is not displayed.");
-        }
-        if (!hasExpectedText) {
-            logger.info("Debug: Products header text does not match expected value.");
-        }
-        if (!titleMatches) {
-            logger.info("Debug: Current URL does not match expected URL. Expected: " + expectedUrl + ", Found: " + currentUrl);
-        }
-
-        return isDisplayed && hasExpectedText && titleMatches;
     }
 }

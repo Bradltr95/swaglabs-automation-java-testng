@@ -27,7 +27,7 @@ public class AddItemToCartTest extends BaseTest {
     public void loginAsUser(String user, String pass, String baseUrl) {
         loginPage = new LoginPage(driver);
         loginPage.loginAs(user, pass);
-        assert loginPage.isLoginSuccessful(baseUrl) : "Login was not successful";
+        assert loginPage.isLoginSuccessful(baseUrl, "Products") : "Login was not successful";
     }
 
     @Test
