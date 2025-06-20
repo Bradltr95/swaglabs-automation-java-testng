@@ -12,6 +12,7 @@ public class BasePage {
     protected final By pageHeader =  By.cssSelector("[data-test='title']");
     protected ElementChecker checkElement;
     private final String pathUrl;
+    private String pageHeaderText;
     Logger logger = Logger.getLogger(getClass().getName());
 
     // Set the driver, pathUrl and pass the driver to the elementChecker object.
@@ -21,6 +22,32 @@ public class BasePage {
         checkElement = new ElementChecker(this.driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
+    public boolean isHeaderTextDisplayed() { return checkElement.elementExists(pageHeader); }
 
     public String getPath() { return this.pathUrl; }
+
+    public boolean isPageValid(String baseUrl, String pageHeaderText) {
+        String expectedUrl = baseUrl + getPath();
+        String currentUrl = driver.getCurrentUrl();
+        this.pageHeaderText = pageHeaderText;
+
+        boolean isDisplayed = checkElement.elementExists(pageHeader);
+        boolean hasExpectedText = checkElement.textMatches(pageHeader, pageHeaderText);
+        boolean titleMatches = currentUrl.equals(expectedUrl);
+
+        if (!isDisplayed) {
+            logger.info("Debug: Products header is not displayed.");
+            System.out.print("Product header is not displayed.");
+        }
+        if (!hasExpectedText) {
+            logger.info("Debug: Products header text does not match expected value.");
+            System.out.print("Debug: Products header text does not match expected value.");
+        }
+        if (!titleMatches) {
+            logger.info("Debug: Current URL does not match expected URL. Expected: " + expectedUrl + ", Found: " + currentUrl);
+            System.out.print("URL doesn't match. Expected: " + expectedUrl + " Found: " + currentUrl);
+        }
+
+        return isDisplayed && hasExpectedText && titleMatches;
+    }
 }
