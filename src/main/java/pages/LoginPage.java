@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import java.time.Duration;
 
 public class LoginPage extends BasePage {
     // Page Locators
@@ -42,10 +41,5 @@ public class LoginPage extends BasePage {
 
     public boolean isErrorDisplayed() {
         return !driver.findElements(errorMessage).isEmpty();
-    }
-
-    public boolean isLoginSuccessful(String baseUrl) {
-        InventoryPage inventoryPage = new InventoryPage(driver, "/inventory.html");
-        return inventoryPage.isPageValid(baseUrl);
     }
 }
