@@ -36,12 +36,12 @@ public class BasePage {
         boolean titleMatches = currentUrl.equals(expectedUrl);
 
         if (!isDisplayed) {
-            logger.info("Debug: Products header is not displayed.");
-            System.out.print("Product header is not displayed.");
+            logger.info("Debug: header is not displayed.");
+            System.out.print("Header is not displayed.");
         }
         if (!hasExpectedText) {
-            logger.info("Debug: Products header text does not match expected value.");
-            System.out.print("Debug: Products header text does not match expected value.");
+            logger.info("Debug: Header text does not match expected value.");
+            System.out.print("Debug: Header text does not match expected value.");
         }
         if (!titleMatches) {
             logger.info("Debug: Current URL does not match expected URL. Expected: " + expectedUrl + ", Found: " + currentUrl);

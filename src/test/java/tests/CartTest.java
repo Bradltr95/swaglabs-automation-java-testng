@@ -16,7 +16,7 @@ public class CartTest extends BaseTest {
     public void beforeMethod(String user, String pass, String baseUrl) {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginAs(user, pass);
-        loginPage.isLoginSuccessful(baseUrl, "Products");
+        assert loginPage.isLoginSuccessful(baseUrl, "Products");
     }
 
     @Parameters({"inventoryUrl", "cartUrl"})

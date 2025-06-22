@@ -42,8 +42,4 @@ public class LoginPage extends BasePage {
     public boolean isErrorDisplayed() {
         return !driver.findElements(errorMessage).isEmpty();
     }
-
-    public boolean isLoginSuccessful(String baseUrl, String pageHeaderText) {
-        return isPageValid(baseUrl, pageHeaderText);
-    }
 }
