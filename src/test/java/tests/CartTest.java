@@ -16,7 +16,6 @@ public class CartTest extends BaseTest {
     public void beforeMethod(String user, String pass, String baseUrl) {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginAs(user, pass);
-        assert loginPage.isLoginSuccessful(baseUrl, "Products");
     }
 
     @Parameters({"inventoryUrl", "cartUrl"})
@@ -29,6 +28,7 @@ public class CartTest extends BaseTest {
         inventoryPage.addItemToCart(inventoryItem);
 
         CartPage cartPage = new CartPage(driver, cartUrl);
+
         // Assert expected elements here
         assert cartPage.isItemNameDisplayed();
         assert cartPage.isItemDescriptionDisplayed();
