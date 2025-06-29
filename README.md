@@ -61,3 +61,7 @@ Test Suites exist under the resources folder of src/test/java. See the gradle bu
 TestNG generates basic HTML reports under build/reports/tests/test/ once the tests have been run. Don't push these results in any PRs.
 
 Ideas: Integrate ExtentReports for visual reporting
+
+## TODO 
+- Finish automation for cart checkout.
+- Include reporting and CI for test running.
