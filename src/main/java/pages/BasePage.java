@@ -3,8 +3,6 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import util.ElementChecker;
-
-import java.time.Duration;
 import java.util.logging.Logger;
 
 public class BasePage {
@@ -27,7 +25,6 @@ public class BasePage {
     public boolean isPageValid(String baseUrl, String pageHeaderText) {
         String expectedUrl = baseUrl + getPath();
         String currentUrl = driver.getCurrentUrl();
-        String pageHeaderText = pageHeaderText;
 
         boolean isDisplayed = checkElement.elementExists(pageHeader);
         boolean hasExpectedText = checkElement.textMatches(pageHeader, pageHeaderText);
