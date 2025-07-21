@@ -12,7 +12,6 @@ public class BasePage {
     protected final By pageHeader =  By.cssSelector("[data-test='title']");
     protected ElementChecker checkElement;
     private final String pathUrl;
-    private String pageHeaderText;
     Logger logger = Logger.getLogger(getClass().getName());
 
     // Set the driver, pathUrl and pass the driver to the elementChecker object.
@@ -28,7 +27,7 @@ public class BasePage {
     public boolean isPageValid(String baseUrl, String pageHeaderText) {
         String expectedUrl = baseUrl + getPath();
         String currentUrl = driver.getCurrentUrl();
-        this.pageHeaderText = pageHeaderText;
+        String pageHeaderText = pageHeaderText;
 
         boolean isDisplayed = checkElement.elementExists(pageHeader);
         boolean hasExpectedText = checkElement.textMatches(pageHeader, pageHeaderText);
