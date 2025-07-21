@@ -28,6 +28,9 @@ This project validates key e-commerce user flows such as login, product interact
   - Page Object Model (POM) design pattern is being used.
   - Assertions with detailed validation messages where necessary.
 
+- **Wait Utility**
+  - Organizes all fluent waits into a utitlity class to be reused during testing.
+
 ---
 
 ## Tech Stack
