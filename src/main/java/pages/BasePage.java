@@ -20,7 +20,6 @@ public class BasePage {
         this.driver = driver;
         this.pathUrl = pathUrl;
         checkElement = new ElementChecker(this.driver);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
     public boolean isHeaderTextDisplayed() { return checkElement.elementExists(pageHeader); }
 
