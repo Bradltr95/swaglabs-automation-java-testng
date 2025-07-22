@@ -1,5 +1,7 @@
 package tests;
 
+import driver.DriverType;
+import driver.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeMethod;
@@ -14,7 +16,7 @@ public class BaseTest {
     @Parameters({"baseUrl"})
     @BeforeMethod
     public void setup(String baseUrl) {
-        driver = new ChromeDriver();
+        driver = WebDriverFactory.createDriver(DriverType.CHROME);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
         driver.get(baseUrl);
