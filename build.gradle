@@ -18,6 +18,7 @@ dependencies {
     implementation 'org.seleniumhq.selenium:selenium-java:4.20.0'
     implementation 'io.github.bonigarcia:webdrivermanager:5.8.0'
     testImplementation 'org.testng:testng:7.10.1'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.19.2'
 }
 
 
