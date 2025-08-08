@@ -5,6 +5,9 @@ This project validates key e-commerce user flows such as login, product interact
 
 ---
 
+All test cases make use of the CookieLogin utility class to login using cookies rather than a hard UI login. This prevents test flakiness if the
+Login test fails.
+
 ## Features
 
 - **Login Tests**  
@@ -35,14 +38,14 @@ This project validates key e-commerce user flows such as login, product interact
 
 ## Tech Stack
 
-| Tool                        | Purpose                         |
-|-----------------------------|----------------------------------|
-| Java                        | Programming Language             |
-| Selenium WebDriver          | UI automation                  |
-| TestNG                      | Test framework & grouping        |
-| WebDriverManager            | Driver management (no manual setup) |
-| ExtentReports (Coming Soon) | HTML reporting              |
-| Logger                      | Logging support                  |
+| Tool                        | Purpose                                                        |
+|-----------------------------|----------------------------------------------------------------|
+| Java                        | Programming Language                                           |
+| Selenium WebDriver          | UI automation                                                  |
+| TestNG                      | Test framework & grouping                                      |
+| WebDriver Factory Pattern   | Implemented a WebDriver factory pattern for different browsers |
+| ExtentReports (Coming Soon) | HTML reporting                                                 |
+| Logger                      | Logging support                                                |
 
 ---
 
