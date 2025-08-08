@@ -4,15 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.InventoryPage;
-import pages.LoginPage;
+
+import static util.CookieLogin.loginWithCookie;
 
 public class InventoryTest extends BaseTest {
-    LoginPage loginPage;
-
     @BeforeMethod
     public void loginAsUser() {
-        loginPage = new LoginPage(driver);
-        loginPage.loginAs("standard_user", "secret_sauce");
+        loginWithCookie(driver, "standard_user");
     }
 
     @Test

@@ -7,15 +7,14 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.CartPage;
 import pages.InventoryPage;
-import pages.LoginPage;
+import static util.CookieLogin.loginWithCookie;
 
 public class CartTest extends BaseTest {
 
     @Parameters({"user", "pass", "baseUrl"})
     @BeforeMethod
     public void beforeMethod(String user, String pass, String baseUrl) {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.loginAs(user, pass);
+        loginWithCookie(driver, "standard_user");
     }
 
     @Parameters({"inventoryUrl", "cartUrl"})

@@ -5,8 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pages.LoginPage;
 import pages.InventoryPage;
+
+import static util.CookieLogin.loginWithCookie;
 
 /**
  * Verify the expected page state when we add a an item to the cart.
@@ -19,14 +20,12 @@ import pages.InventoryPage;
  * The text value should be the number of items added to the cart
  **/
 public class AddItemToCartTest extends BaseTest {
-    LoginPage loginPage;
     InventoryPage inventoryPage;
 
     @Parameters({"user", "pass", "baseUrl"})
     @BeforeMethod
     public void loginAsUser(String user, String pass, String baseUrl) {
-        loginPage = new LoginPage(driver);
-        loginPage.loginAs(user, pass);
+        loginWithCookie(driver, "standard_user");
     }
 
     @Test
