@@ -21,7 +21,7 @@ import org.openqa.selenium.WebDriver;
  * to the browser.
  */
 public class CookieLogin {
-    private static final String BASE_URL = "https://www.saucelabs.com";
+    private static final String BASE_URL = "https://www.saucedemo.com";
     private static final String INVENTORY_URL = BASE_URL + "/inventory.html";
 
     // Prevent the class from being instantiated
